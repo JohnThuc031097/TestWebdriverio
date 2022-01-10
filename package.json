@@ -1,0 +1,14 @@
+{
+  "name": "test-webdriverio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "ThucNobita",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "webdriverio": "^7.16.12"
+  }
+}
