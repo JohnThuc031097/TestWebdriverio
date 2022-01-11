@@ -1,5 +1,7 @@
 import { remote } from 'webdriverio'
 
+import * as utils from './utils.js';
+
 const capabilities = {
     platformName: 'Android',
     automationName: 'UiAutomator2',
@@ -7,26 +9,28 @@ const capabilities = {
     appActivity: 'com.instagram.mainactivity.MainActivity',
     noReset: true,
     dontStopAppOnReset: true
-};
+}
 const serverConfig = {
-    path: '/wd/hub',
     host: 'localhost',
     port: 4723,
-    logLevel: 'info'
-};
+    path: '/wd/hub',
+    logLevel: 'silent'
+}
 
-const client = await remote({ capabilities, ...serverConfig })
-console.log(client)
+const driver = await remote({ capabilities, ...serverConfig });
 
-const eProfile = await client.findElement('id', 'com.instagram.android:id/profile_tab')
-console.log(eProfile['ELEMENT'])
+console.log('[Action] Get ID Tab Profile');
+const idTabProfile = await utils.find_by_id(driver, 'profile_tab')
+console.log(`=> ${idTabProfile}`);
 
-const boundsProfile = await client.getElementAttribute(eProfile['ELEMENT'], 'bounds')
-console.log(boundsProfile)
-
-client.touchPerform([{
-    actions:'press',
-    options:{
-        x: boundsProfile[0]
+console.log('[Action] Long click Tab Profile');
+await utils.set_action(driver, [{
+    action: 'longPress',
+    options: {
+        element: idTabProfile
     }
 }])
+
+console.log('[Action] Get all user in account');
+let users = await utils.get_all_user_in_account(driver)
+console.log(users);
