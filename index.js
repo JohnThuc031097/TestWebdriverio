@@ -1,6 +1,7 @@
 import { remote } from 'webdriverio'
 
 import * as utils from './utils.js';
+import * as handle from "./handle.js";
 
 const capabilities = {
     platformName: 'Android',
@@ -19,18 +20,6 @@ const serverConfig = {
 
 const driver = await remote({ capabilities, ...serverConfig });
 
-console.log('[Action] Get ID Tab Profile');
-const idTabProfile = await utils.find_by_id(driver, 'profile_tab')
-console.log(`=> ${idTabProfile}`);
+await handle.switch_screen(driver, 'Profile')
+await handle.switch_screen(driver, 'Options')
 
-console.log('[Action] Long click Tab Profile');
-await utils.set_action(driver, [{
-    action: 'longPress',
-    options: {
-        element: idTabProfile
-    }
-}])
-
-console.log('[Action] Get all user in account');
-let users = await utils.get_all_user_in_account(driver)
-console.log(users);
