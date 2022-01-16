@@ -12,9 +12,8 @@ export const finds_by_id = async (driver, id) => {
         elements.forEach(e => {
             result.push(e['ELEMENT'])
         });
-        return result
     }
-    return null
+    return result
 }
 
 export const find_by_class = async (driver, className) => {
@@ -30,9 +29,8 @@ export const finds_by_class = async (driver, className) => {
         elements.forEach(e => {
             result.push(e['ELEMENT'])
         });
-        return result
     }
-    return null
+    return result
 }
 
 export const find_by_accessibility_id = async (driver, accessibilityId) => {
@@ -48,9 +46,8 @@ export const finds_by_accessibility_id = async (driver, accessibilityId) => {
         elements.forEach(e => {
             result.push(e['ELEMENT'])
         });
-        return result
     }
-    return null
+    return result
 }
 
 export const find_child_by_id = async (driver, eParent, id) => {
@@ -66,9 +63,8 @@ export const finds_child_by_id = async (driver, eParent, id) => {
         elementsChild.forEach(e => {
             result.push(e['ELEMENT'])
         });
-        return result
     }
-    return null
+    return result
 }
 
 export const find_child_by_class = async (driver, eParent, className) => {
@@ -84,9 +80,8 @@ export const finds_child_by_class = async (driver, eParent, className) => {
         elementsChild.forEach(e => {
             result.push(e['ELEMENT'])
         });
-        return result
     }
-    return null
+    return result
 }
 
 export const find_child_by_accessibility_id = async (driver, eParent, accessibilityId) => {
@@ -102,7 +97,6 @@ export const finds_child_by_accessibility_id = async (driver, eParent, accessibi
         elementsChild.forEach(e => {
             result.push(e['ELEMENT'])
         });
-        return result
     }
-    return null
+    return result
 }

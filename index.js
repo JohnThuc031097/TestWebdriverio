@@ -21,5 +21,10 @@ const serverConfig = {
 const driver = await remote({ capabilities, ...serverConfig });
 
 await handle.switch_screen(driver, 'Profile')
+driver.setTimeouts(2000)
 await handle.switch_screen(driver, 'Options')
+driver.setTimeouts(2000)
+await handle.switch_screen(driver, 'Saved')
+driver.setTimeouts(2000)
+const items = handle.get_all_saved_collection(driver)
 
